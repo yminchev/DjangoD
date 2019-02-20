@@ -4,7 +4,7 @@ pipeline {
     registryCredential = 'DockerRegistry'
     dockerImage = 'mydjango'
     dockerfile = 'Django'
-    dockerimage
+    dockerimage = ''
     }
     
     agent any
