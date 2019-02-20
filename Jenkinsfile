@@ -20,8 +20,9 @@ pipeline {
         stage('Push') {
                 steps {
                     script {
-                        docker.withRegistry(myregistry,mycredentials)
+                        docker.withRegistry(myregistry,mycredentials) {
                         mydocker.push()
+                        }
                     }
                 }
          }
