@@ -4,10 +4,12 @@ pipeline {
     registryCredential = 'DockerRegistry'
     dockerImage = 'mydjango'
     dockerfile = 'Django'
-  }
+    }
     
-    stages('Test') {
+    stages('Build') {
         steps {
+            docker.build(registry + ':$BUILD_NUMBER')
+                  
         }
     }
 }
