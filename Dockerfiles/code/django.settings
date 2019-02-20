@@ -1,0 +1,7 @@
+
+# Custom Django settins added by yuliy
+
+ALLOWED_HOSTS = ['*']
+
+DEBUG = False
+
