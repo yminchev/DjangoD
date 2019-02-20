@@ -13,7 +13,7 @@ pipeline {
         stage('Build') {
         steps {
             script {
-                mydocker = docker.build('${registry}/${dockerimage}:$BUILD_NUMBER', '-f ./Dockerifiles/Django ./Dockerfiles')
+                mydocker = docker.build('${registry}/${dockerimage}:$BUILD_NUMBER', '-f ./Dockerfiles/Django ./Dockerfiles')
             }
         }
         }
