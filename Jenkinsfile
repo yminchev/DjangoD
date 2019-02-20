@@ -1,6 +1,6 @@
 pipeline {
     environment {
-    myregistry = "yminc.com:5000"
+    myregistry = "https://yminc.com:5000"
     mycredentials = 'DockerRegistry'
     dockerimage = 'mydjango'
     dockerfile = './Dockerfiles/Django'
