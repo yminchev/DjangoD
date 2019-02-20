@@ -1,6 +1,6 @@
 pipeline {
     environment {
-    myregistry = "https://yminc.com:5000"
+    myregistry = "yminc.com:5000"
     mycredentials = 'DockerRegistry'
     dockerimage = 'mydjango'
     dockerfile = './Dockerfiles/Django'
@@ -20,7 +20,7 @@ pipeline {
         stage('Push') {
                 steps {
                     script {
-                        docker.withRegistry(myregistry,mycredentials) {
+                        docker.withRegistry('https://'+myregistry,mycredentials) {
                         mydocker.push()
                         }
                     }
