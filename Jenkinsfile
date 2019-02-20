@@ -1,11 +1,10 @@
 pipeline {
-    agent { dockerfile true }
-    stages {
-        stage('Test') {
-            steps {
-                sh 'node --version'
-                sh 'svn --version'
-            }
-        }
+    agent { 
+        dockerfile { 
+            dir 'Dockerfiles'
+            file 'Django'
+            registryUrl 'yminc.com:5000'
+            registryCredentialsId 'DockerRegistry'
+        } 
     }
 }
