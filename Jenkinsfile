@@ -7,6 +7,8 @@ pipeline {
     dockerimage
     }
     
+    agent any
+    
     stages('Build') {
         steps {
             dockerimage = docker.build(registry + ':$BUILD_NUMBER', "-f ${dockerfile} ./dockerfiles")
