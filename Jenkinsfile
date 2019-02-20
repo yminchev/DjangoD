@@ -9,11 +9,13 @@ pipeline {
     
     agent any
     
-    stages('Build') {
+    stages {
+        stage('Build') {
         steps {
             script {
             dockerimage = docker.build(registry + ':$BUILD_NUMBER', "-f ${dockerfile} ./Dockerfiles")
             }
         }
+    }
     }
 }
