@@ -2,16 +2,10 @@ pipeline {
     environment {
     registry = "yminc.com:5000"
     registryCredential = 'DockerRegistry'
-    dockerImage = ''
+    dockerImage = 'mydjango'
+    dockerfile = 'Django'
   }
-    agent { 
-        dockerfile { 
-            dir 'Dockerfiles'
-            filename 'Django'
-            registryUrl 'yminc.com:5000'
-            registryCredentialsId 'DockerRegistry'
-        }
-    }
+    
     stages('Test') {
         steps {
         }
