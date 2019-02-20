@@ -16,14 +16,15 @@ pipeline {
                 mydocker = docker.build('${registry}/${dockerimage}:$BUILD_NUMBER', '-f ./Dockerfiles/Django ./Dockerfiles')
             }
         }
-            stage('Push') {
+        }
+        stage('Push') {
                 steps {
                     script {
                         docker.withRegistry(myregistry,mycredentials)
                         mydocker.push()
                     }
                 }
-            }
-        }
+         }
+        
     }
 }
