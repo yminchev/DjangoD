@@ -1,4 +1,5 @@
 pipeline {
+    stages {
     agent { 
         dockerfile { 
             dir 'Dockerfiles'
@@ -6,5 +7,6 @@ pipeline {
             registryUrl 'yminc.com:5000'
             registryCredentialsId 'DockerRegistry'
         } 
+    }
     }
 }
