@@ -16,6 +16,6 @@ pipeline {
             dockerimage = docker.build(registry + ':$BUILD_NUMBER', "-f ${dockerfile} ./Dockerfiles")
             }
         }
-    }
+        }
     }
 }
