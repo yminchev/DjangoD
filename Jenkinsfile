@@ -8,4 +8,8 @@ pipeline {
             registryCredentialsId 'DockerRegistry'
         }
     }
+    stages('Test') {
+        steps {
+        }
+    }
 }
