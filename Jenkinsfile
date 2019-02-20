@@ -7,7 +7,5 @@ pipeline {
             registryUrl 'yminc.com:5000'
             registryCredentialsId 'DockerRegistry'
         }
-        stages {
-        }
     }
 }
