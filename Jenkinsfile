@@ -1,7 +1,7 @@
 pipeline {
     environment {
-    registry = "yminc.com:5000"
-    registryCredential = 'DockerRegistry'
+    myregistry = "yminc.com:5000"
+    mycredentials = 'DockerRegistry'
     dockerimage = 'mydjango'
     dockerfile = './Dockerfiles/Django'
     mydocker = ''
@@ -16,6 +16,14 @@ pipeline {
                 mydocker = docker.build('${registry}/${dockerimage}:$BUILD_NUMBER', '-f ./Dockerfiles/Django ./Dockerfiles')
             }
         }
+            stage('Push') {
+                steps {
+                    script {
+                        docker.withRegistry(myregistry,mycredentials)
+                        mydocker.push()
+                    }
+                }
+            }
         }
     }
 }
