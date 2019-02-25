@@ -21,7 +21,7 @@ echo "Done."
 
 echo -n "Removing old container $CNAME..."
 docker rm $CNAME
-echo "Done.
+echo "Done."
 
 echo -n "Starting a new container $CNAME from $INAME..."
 docker run -d -p 8000:8000 --name=django yminc.com:5000/mydjango:latest 
