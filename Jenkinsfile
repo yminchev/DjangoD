@@ -26,7 +26,7 @@ pipeline {
                     }
                 }
          }
-        stage('Deploy;) {
+        stage('Deploy') {
               steps {
                 withCredentials([usernamePassword(credentialsID: 'deploy_django', usernameVariable: 'USERNAME', passwordVariable: 'USERPASS']){
                     sshPublisher(
