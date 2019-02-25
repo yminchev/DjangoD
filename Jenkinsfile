@@ -39,8 +39,8 @@ pipeline {
                                  ],
                         transfers: [
                             sshTransfer(
-                                sourceFiles: 'django-deploy.sh'
-                                remoteDiectory: '/home/django'
+                                sourceFiles: 'django-deploy.sh',
+                                remoteDiectory: '/home/django',
                                 execCommand: '/home/django/django-deploy.sh'
                                 
                             )
