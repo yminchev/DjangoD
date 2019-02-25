@@ -21,6 +21,7 @@ pipeline {
                 steps {
                     script {
                         docker.withRegistry('https://'+myregistry,mycredentials) {
+                        mydocker.push()
                         mydocker.push('latest')
                         }
                     }
@@ -33,10 +34,10 @@ pipeline {
                         publishers: [
                             sshPublisherDesc(
                                 configName: 'DockerDeploy',
-                                sshCredentials: [
-                                    username: "$USERNAME",
-                                    encryptedPassphrase: "$USERPASS"
-                                 ],
+                                #sshCredentials: [
+                                 #   username: "$USERNAME",
+                                  #  encryptedPassphrase: "$USERPASS"
+                                 #],
                         transfers: [
                             sshTransfer(
                                 sourceFiles: 'django-deploy.sh',
