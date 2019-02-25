@@ -26,6 +26,33 @@ pipeline {
                     }
                 }
          }
-        
+        stage('Deploy;) {
+              steps {
+                withCredentials([usernamePassword(credentialsID: 'deploy_django', usernameVariable: 'USERNAME', passwordVariable: 'USERPASS']){
+                    sshPublisher(
+                        publishers: [
+                            sshPublisherDesc(
+                                configName: 'DockerDeploy',
+                                sshCredentials: [
+                                    username: "$USERNAME",
+                                    encryptedPassphrase: "$USERPASS"
+                                 ],
+                        transfers: [
+                            sshTransfer(
+                                sourceFiles: 'django-deploy.sh'
+                                remoteDiectory: '/home/django'
+                                execCommand: '/home/django/django-deploy.sh'
+                                
+                            )
+                        ]
+                                )
+                     ]
+                    )
+                }
+                                 
+                                 
+              }
+              
+              }
     }
 }
