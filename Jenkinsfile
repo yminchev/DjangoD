@@ -13,7 +13,7 @@ pipeline {
         stage('Build') {
         steps {
             script {
-                mydocker = docker.build('${myregistry}/${dockerimage}:$BUILD_NUMBER', '-f ./Dockerfiles/Django ./Dockerfiles')
+                mydocker = docker.build('mydjango:$BUILD_NUMBER', '-f ./Dockerfiles/Django ./Dockerfiles')
             }
         }
         }
@@ -21,7 +21,7 @@ pipeline {
                 steps {
                     script {
                         docker.withRegistry('https://'+myregistry,mycredentials) {
-                        mydocker.push()
+                        mydocker.push('latest')
                         }
                     }
                 }
