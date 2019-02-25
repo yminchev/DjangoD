@@ -34,10 +34,7 @@ pipeline {
                         publishers: [
                             sshPublisherDesc(
                                 configName: 'DockerDeploy',
-                                #sshCredentials: [
-                                 #   username: "$USERNAME",
-                                  #  encryptedPassphrase: "$USERPASS"
-                                 #],
+                                
                         transfers: [
                             sshTransfer(
                                 sourceFiles: 'django-deploy.sh',
