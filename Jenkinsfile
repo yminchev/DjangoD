@@ -29,13 +29,13 @@ pipeline {
          }
         stage('Deploy') {
               steps {
-                withCredentials([usernamePassword(credentialsID: 'deploy_django', usernameVariable: 'USERNAME', passwordVariable: 'USERPASS')]){
+                withCredentials([usernamePassword(credentialsId: 'deploy_django', passwordVariable: 'USERPASS', usernameVariable: 'USERNAME')]) {
                     script {
                         sh "sshpass -p '$USERPASS' -v ssh -o SctrictHostKeyChecking=no $USERNAME@192.168.56.101 \"/home/django/django-deploy.sh\""
                     }
-                    
+                    // some block
                 }
-                                 
+                                                
                                  
               }
               
