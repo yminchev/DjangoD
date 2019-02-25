@@ -35,7 +35,7 @@ pipeline {
                    //# }
                     // some block
                     
-                    sshPublisher(publishers: [sshPublisherDesc(configName: 'DockerDeploy', transfers: [sshTransfer(cleanRemote: false, excludes: '', execCommand: '/home/django/django-deploy.sh', execTimeout: 120000, flatten: false, makeEmptyDirs: false, noDefaultExcludes: false, patternSeparator: '[, ]+', remoteDirectory: '/home/django', remoteDirectorySDF: false, removePrefix: '', sourceFiles: 'django-deploy.sh')], usePromotionTimestamp: false, useWorkspaceInPromotion: false, verbose: false)])
+                    sshPublisher(publishers: [sshPublisherDesc(configName: 'DockerDeploy', verbose: true, transfers: [sshTransfer(cleanRemote: false, excludes: '', execCommand: '/home/django/django-deploy.sh', execTimeout: 120000, flatten: false, makeEmptyDirs: false, noDefaultExcludes: false, patternSeparator: '[, ]+', remoteDirectory: '/home/django', remoteDirectorySDF: false, removePrefix: '', sourceFiles: 'django-deploy.sh')], usePromotionTimestamp: false, useWorkspaceInPromotion: false, verbose: false)])
                 }
                                                 
                                  
