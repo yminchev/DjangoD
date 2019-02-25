@@ -30,22 +30,10 @@ pipeline {
         stage('Deploy') {
               steps {
                 withCredentials([usernamePassword(credentialsID: 'deploy_django', usernameVariable: 'USERNAME', passwordVariable: 'USERPASS')]){
-                    sshPublisher(
-                        publishers: [
-                            sshPublisherDesc(
-                                configName: 'DockerDeploy',
-                                
-                        transfers: [
-                            sshTransfer(
-                                sourceFiles: 'django-deploy.sh',
-                                remoteDiectory: '/home/django',
-                                execCommand: '/home/django/django-deploy.sh'
-                                
-                            )
-                        ]
-                                )
-                     ]
-                    )
+                    script {
+                        sh "sshpass -p '$USERPASS' -v ssh -o SctrictHostKeyChecking=no $USERNAME@192.168.56.101 \"docker ps"
+                    }
+                    
                 }
                                  
                                  
