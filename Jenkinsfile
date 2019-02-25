@@ -31,7 +31,7 @@ pipeline {
               steps {
                 withCredentials([usernamePassword(credentialsID: 'deploy_django', usernameVariable: 'USERNAME', passwordVariable: 'USERPASS')]){
                     script {
-                        sh "sshpass -p '$USERPASS' -v ssh -o SctrictHostKeyChecking=no $USERNAME@192.168.56.101 \"docker ps"
+                        sh "sshpass -p '$USERPASS' -v ssh -o SctrictHostKeyChecking=no $USERNAME@192.168.56.101 \"/home/django/django-deploy.sh\""
                     }
                     
                 }
