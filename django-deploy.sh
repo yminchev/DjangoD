@@ -22,3 +22,5 @@ docker rm $CNAME
 
 echo "Starting a new container $CNAME from $INAME..."
 docker run -d -p 8000:8000 --name=$CNAME $INAME 
+
+exit 1
